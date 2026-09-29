@@ -16,13 +16,13 @@ class MovieListing extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
+        padding: EdgeInsets.all(10),
         color: cinemaBackground,
-        child: const Center(
           child: Text(
             'Spiderman',
             style: TextStyle(color: cinemaFontWhite, fontSize: 24),
+            textAlign: TextAlign.left,
           ),
-        ),
       ),
     );
   }
