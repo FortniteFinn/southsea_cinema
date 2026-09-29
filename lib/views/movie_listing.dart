@@ -15,7 +15,15 @@ class MovieListing extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: const SizedBox.shrink(),
+      body: Container(
+        color: cinemaBackground,
+        child: const Center(
+          child: Text(
+            'Spiderman',
+            style: TextStyle(color: cinemaFontWhite, fontSize: 24),
+          ),
+        ),
+      ),
     );
   }
 }
