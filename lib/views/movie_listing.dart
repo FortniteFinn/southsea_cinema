@@ -16,14 +16,39 @@ class MovieListing extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
-        padding: EdgeInsets.all(10),
-        color: cinemaBackground,
-          child: Text(
-            'Spiderman',
-            style: TextStyle(color: cinemaFontWhite, fontSize: 24),
-            textAlign: TextAlign.left,
-          ),
-      ),
+          padding: EdgeInsets.all(25),
+          // color: cinemaBackground,
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Spider-Man (2002) (12A)',
+                  style: TextStyle(
+                      height: 2.4, color: cinemaFontWhite, fontSize: 32),
+                ),
+                SizedBox(height: 17),
+                Text(
+                  'Southsea Cinema Room',
+                  style: TextStyle(
+                      height: 2.4, color: cinemaFontWhite, fontSize: 20),
+                ),
+                Text(
+                  'Friday 16th December 2026, 18:00 - ends at 20:01',
+                  style: TextStyle(
+                      height: 2.4, color: cinemaFontWhite, fontSize: 20),
+                ),
+                SizedBox(height: 17),
+                Text(
+                  'Friday 16th December 2026, 18:00 - ends at 20:01',
+                  style: TextStyle(
+                      height: 2.4, color: cinemaFontWhite, fontSize: 20),
+                ),
+                Text(
+                  'Friday 16th December 2026, 18:00 - ends at 20:01',
+                  style: TextStyle(
+                      height: 2.4, color: cinemaFontWhite, fontSize: 20),
+                ),
+              ])),
     );
   }
 }
