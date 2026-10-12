@@ -55,11 +55,16 @@ class DropDownMenu extends StatefulWidget {
 }
 
 class _DropDownMenuState extends State<DropDownMenu> {
+  String? selectedvalue;
+
+  final List<String> quantities = ['1', '2', '3', '4', '5'];
   int _counter = 0;
 
-  void updateState(int newValue) {
-    setState(() {
-      _counter = newValue;
-    });
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: SafeArea(child: DropDownMenu(dropdownmenu))
+      )
+    )
   }
 }
