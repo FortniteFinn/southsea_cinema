@@ -57,25 +57,46 @@ class DropDownMenu extends StatefulWidget {
 
 class _DropDownMenuState extends State<DropDownMenu> {
   int _quantity = 0;
+  String _feedback = '';
 
   @override
   Widget build(BuildContext context) {
-    return DropdownMenu<int>(
-      initialSelection: 1,
-      onSelected: (int? value) {
-        if (value != null) {
-          setState(() {
-            _quantity = value;
-          });
-        }
-      },
-      dropdownMenuEntries: [
-        DropdownMenuEntry(value: 1, label: '1'),
-        DropdownMenuEntry(value: 2, label: '2'),
-        DropdownMenuEntry(value: 3, label: '3'),
-        DropdownMenuEntry(value: 4, label: '4'),
-        DropdownMenuEntry(value: 5, label: '5'),
+    return Column(
+      spacing: 15,
+      crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Row(
+      spacing: 15,
+      children: [ 
+        DropdownMenu<int>(
+          initialSelection: 1,
+          onSelected: (int? value) {
+            if (value != null) {
+              setState(() {
+                _quantity = value;
+              });
+            }
+          },
+          dropdownMenuEntries: [
+            DropdownMenuEntry(value: 1, label: '1'),
+            DropdownMenuEntry(value: 2, label: '2'),
+            DropdownMenuEntry(value: 3, label: '3'),
+            DropdownMenuEntry(value: 4, label: '4'),
+            DropdownMenuEntry(value: 5, label: '5'),
+          ],
+        ),
+        Text('Number of Tickets: $_quantity'),
       ],
+      ),
+      ElevatedButton(
+        onPressed: () {
+          setState(() {
+            _feedback = 'Added $_quantity Tickets.';
+            });
+          }, child: const Text('Add to Order'),
+    ),
+    Text(_feedback),
+    ],
     );
   }
 }
