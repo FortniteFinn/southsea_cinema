@@ -12,6 +12,16 @@ class MovieRepository {
         age: '12A',
         price: 5.00,
         imagePath: 'assets/images/batman.jpg',
+      ),
+      Movie(
+        id: 'angry_birds',
+        title: 'Angry Birds',
+        synopsis: "On an island inhabited entirely by flightless birds, the short-tempered Red struggles to fit in with the rest of society. When a mysterious group of green pigs arrives, Red and his unlikely friends must uncover their true intentions and protect their home.",
+        description: "Join Red, Chuck and Bomb in a hilarious animated adventure filled with comedy, friendship and explosive action. When the pigs threaten their peaceful island, three unlikely heroes must work together to save their fellow birds.",
+        time: '13:00 December 6th 2026',
+        age: 'PG',
+        price: 4.00,
+        imagePath: 'assets/images/angry_birds.png',
       )
     ];
   }
