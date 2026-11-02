@@ -69,7 +69,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
       spacing: 15,
       children: [ 
         DropdownMenu<int>(
-          initialSelection: 1,
+          initialSelection: 0,
           onSelected: (int? value) {
             if (value != null) {
               setState(() {
@@ -78,6 +78,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
             }
           },
           dropdownMenuEntries: [
+            DropdownMenuEntry(value: 0, label: '0'),
             DropdownMenuEntry(value: 1, label: '1'),
             DropdownMenuEntry(value: 2, label: '2'),
             DropdownMenuEntry(value: 3, label: '3'),
