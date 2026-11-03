@@ -22,7 +22,17 @@ class MovieRepository {
         age: 'PG',
         price: 4.00,
         imagePath: 'assets/images/angry_birds.png',
-      )
+      ),
+      Movie(
+        id: 'alien',
+        title: 'Alien Romulus',
+        synopsis: "Set between the events of Alien and Aliens, a group of young space colonists searching for a better future explore an abandoned space station. However, they soon discover that the station is home to a deadly alien lifeform, forcing them to fight for survival in the darkness of space.",
+        description: "Experience a terrifying return to the world of Alien in this sci-fi horror adventure. As a group of young explorers encounter a deadly extraterrestrial threat, they must rely on their courage and teamwork to survive. Featuring intense suspense, horrifying creatures and claustrophobic environments, Alien: Romulus delivers a thrilling addition to the iconic franchise.",
+        time: '20:00 December 9th 2026',
+        age: '15',
+        price: 8.00,
+        imagePath: 'assets/images/alien.jpg',
+      ),
     ];
   }
 }

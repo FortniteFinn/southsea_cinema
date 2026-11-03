@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/models/movie.dart';
+import 'package:southsea_cinema/constants.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -9,7 +10,8 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      color: cinemaBackground,
+      elevation: 0,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -21,8 +23,7 @@ class MovieCard extends StatelessWidget {
                 Image.asset(
                   movie.imagePath,
                   width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
+                  height: 120,
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -32,6 +33,7 @@ class MovieCard extends StatelessWidget {
                       Text(
                         movie.title,
                         style: const TextStyle(
+                          color: cinemaBrandDark,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
@@ -39,7 +41,7 @@ class MovieCard extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         movie.description,
-                        style: const TextStyle(color: Colors.black54),
+                        style: const TextStyle(color: cinemaFontWhite),
                       ),
                     ],
                   ),
@@ -58,8 +60,13 @@ class MovieCard extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: cinemaBrandLight,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero)),
                   onPressed: () {},
-                  child: const Text('Order'),
+                  child: const Text('Book Now',
+                      style: const TextStyle(color: cinemaFontWhite)),
                 ),
               ],
             ),
