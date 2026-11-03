@@ -18,6 +18,26 @@ class MovieCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              children: [
+                Text(
+                  movie.title,
+                  style: const TextStyle(
+                    color: cinemaBrandDark,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  ' (${movie.age})',
+                  style: const TextStyle(
+                    color: cinemaFontMuted,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10,),
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
@@ -25,43 +45,45 @@ class MovieCard extends StatelessWidget {
                   width: 80,
                   height: 120,
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 10),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        movie.title,
-                        style: const TextStyle(
-                          color: cinemaBrandDark,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        movie.description,
-                        style: const TextStyle(color: cinemaFontWhite),
-                      ),
-                    ],
+                  child: Text(
+                    movie.description,
+                    style: const TextStyle(
+                      color: cinemaFontWhite,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10,),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "BOOK TICKETS",
+                  style: const TextStyle(
+                    color: cinemaFontWhite,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '£${movie.price.toStringAsFixed(2)}',
+                  movie.time,
                   style: const TextStyle(
+                    color: cinemaFontWhite,
                     fontSize: 16,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: cinemaBrandLight,
+                      backgroundColor: cinemaBrand,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.zero)),
                   onPressed: () {},
