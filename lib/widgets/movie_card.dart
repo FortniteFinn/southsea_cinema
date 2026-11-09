@@ -88,7 +88,7 @@ class MovieCard extends StatelessWidget {
                           borderRadius: BorderRadius.zero)),
                   onPressed: () {},
                   child: const Text('Book Now',
-                      style: const TextStyle(color: cinemaFontWhite)),
+                      style: TextStyle(color: cinemaFontWhite)),
                 ),
               ],
             ),
