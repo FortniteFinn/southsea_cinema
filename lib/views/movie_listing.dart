@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/models/movie.dart';
 
 class MovieListing extends StatelessWidget {
   const MovieListing({super.key});
@@ -42,6 +43,7 @@ class MovieListing extends StatelessWidget {
                     const Text(
                       'Select Quantities (Up to 5 in total)',
                     ),
+                    const Text(widget.movie.formattedPrice),
                     DropDownMenu(),
                   ])),
         ));
