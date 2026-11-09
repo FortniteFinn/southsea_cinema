@@ -35,11 +35,11 @@ void main() {
           description: 'A science fiction horror film.',
           time: '20:00',
           age: '15',
-          price: 7.5,
+          price: 7,
           imagePath: 'assets/images/alien.jpg',
         );
 
-        expect(movie.formattedPrice, '£7.50');
+        expect(movie.formattedPrice, '£7.00');
       },
     );
   });
