@@ -14,7 +14,7 @@ void main() {
         time: '18:00',
         age: '12A',
         price: 5.25,
-        imagePath: 'assets/images/spiderman.jpeg',
+        imagePath: 'assets/images/spiderman.jpg',
       );
 
       expect(movie.id, 'spiderman');
@@ -24,7 +24,7 @@ void main() {
       expect(movie.time, '18:00');
       expect(movie.age, '12A');
       expect(movie.price, 5.25);
-      expect(movie.imagePath, 'assets/images/spiderman.jpeg');
+      expect(movie.imagePath, 'assets/images/spiderman.jpg');
     });
 
     test(
