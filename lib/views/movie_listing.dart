@@ -108,7 +108,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero)),
           onPressed: () {
             setState(() {
-              _feedback = 'Added $_quantity Tickets.';
+              _feedback = 'Added $_quantity Tickets';
             });
           },
           child: const Text(

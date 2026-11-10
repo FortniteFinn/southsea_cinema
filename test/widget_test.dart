@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/main.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/views/home_view.dart';
+import 'package:southsea_cinema/views/movie_listing.dart';
 
 void main() {
   group('Movie model tests', () {
@@ -62,6 +63,22 @@ void main() {
       await tester.scrollUntilVisible(find.text('Alien Romulus'), 500);
       expect(find.text('Alien Romulus'), findsOneWidget);
       expect(find.text('Book Now'), findsAtLeastNWidgets(1));
+    });
+
+    testWidgets('Tapping Book Now navigates to Movie listing with selected movie',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const SouthseaCinemaApp());
+
+      await tester.tap(find.text('Book Now').first);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(MovieListing), findsOneWidget);
+      expect(find.text('BATMAN BEGINS (12A)'), findsOneWidget);
+      expect(find.text('Number of Tickets: 0'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('Add to Order'), 500);
+      await tester.tap(find.text('Add to Order'));
+      await tester.pump();
+      expect(find.text('Added 0 Tickets'), findsOneWidget);
     });
   });
   });
