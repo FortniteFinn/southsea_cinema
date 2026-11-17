@@ -52,10 +52,7 @@ class MovieCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     movie.description,
-                    style: const TextStyle(
-                      color: cinemaFontWhite,
-                      fontSize: 16,
-                    ),
+                    style: cinemaBodyStyle
                   ),
                 ),
               ],
@@ -68,10 +65,7 @@ class MovieCard extends StatelessWidget {
               children: [
                 Text(
                   "BOOK TICKETS",
-                  style: const TextStyle(
-                    color: cinemaFontWhite,
-                    fontSize: 16,
-                  ),
+                  style: cinemaBodyStyle
                 ),
               ],
             ),
@@ -83,10 +77,7 @@ class MovieCard extends StatelessWidget {
               children: [
                 Text(
                   movie.time,
-                  style: const TextStyle(
-                    color: cinemaFontWhite,
-                    fontSize: 16,
-                  ),
+                  style: cinemaBodyStyle
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
