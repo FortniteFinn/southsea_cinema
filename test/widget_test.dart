@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/main.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/views/home_view.dart';
+import 'package:southsea_cinema/views/movie_listing.dart';
 
 void main() {
   group('Movie model tests', () {
@@ -44,8 +45,8 @@ void main() {
         expect(movie.formattedPrice, '£7.00');
       },
     );
-
-      group('App smoke tests', () {
+  });
+  group('App smoke tests', () {
     testWidgets('App displays HomeView as home', (WidgetTester tester) async {
       await tester.pumpWidget(const SouthseaCinemaApp());
       expect(find.byType(HomeView), findsOneWidget);
@@ -63,6 +64,25 @@ void main() {
       expect(find.text('Alien Romulus'), findsOneWidget);
       expect(find.text('Book Now'), findsAtLeastNWidgets(1));
     });
-  });
+
+    testWidgets('Tapping Book Now navigates to MovieListing',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const SouthseaCinemaApp());
+
+      await tester.tap(find.text('Book Now').first);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(MovieListing), findsOneWidget);
+      expect(find.text('BATMAN BEGINS (12A)'), findsOneWidget);
+
+      await tester.ensureVisible(find.text('Add to Order'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Add to Order'));
+      await tester.pump();
+
+      await tester.ensureVisible(find.text('Added 0 Tickets.'));
+      expect(find.text('Added 0 Tickets.'), findsOneWidget);
+    });
   });
 }

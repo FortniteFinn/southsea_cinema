@@ -21,18 +21,14 @@ class _MovieListingState extends State<MovieListing> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(appTitle, style: cinemaHeaderStyle),
-          backgroundColor: cinemaSurface,
-          iconTheme: const IconThemeData(color: cinemaBrand),
-          elevation: 0,
         ),
         drawer: const NavDrawer(),
-        body: Container(
-          padding: EdgeInsets.all(25),
-          // color: cinemaBackground,
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(25),
           child: DefaultTextStyle(
               style: const TextStyle(color: cinemaFontWhite, fontSize: 21),
               child: Column(
-                  spacing: 21,
+                  spacing: 15,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -49,7 +45,6 @@ class _MovieListingState extends State<MovieListing> {
                       'Southsea Cinema Room',
                     ),
                     Text(widget.movie.time),
-                    const SizedBox(height: 15),
                     Text(widget.movie.description),
                     const Text(
                       'Select Quantities (Up to 5 in total)',
