@@ -14,10 +14,7 @@ class HomeView extends StatelessWidget {
     final List<Movie> movies = repository.getMovies();
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          appTitle,
-          style: cinemaHeaderStyle,
-        ),
+        title: const Text(appTitle, style: cinemaHeaderStyle),
         backgroundColor: cinemaSurface,
         iconTheme: const IconThemeData(color: cinemaBrand),
         elevation: 0,
