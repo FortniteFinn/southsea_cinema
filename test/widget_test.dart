@@ -65,5 +65,4 @@ void main() {
       expect(find.text('Book Now'), findsAtLeastNWidgets(1));
     });
   });
-  });
 }
