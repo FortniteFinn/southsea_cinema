@@ -3,6 +3,8 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
+import 'package:southsea_cinema/models/ticket_item.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 
 class MovieListing extends StatefulWidget {
   final Movie movie;
@@ -51,21 +53,23 @@ class _MovieListingState extends State<MovieListing> {
                       'Select Quantities (Up to 5 in total)',
                     ),
                     Text('Tickets (${widget.movie.formattedPrice} each)'),
-                    DropDownMenu(),
+                    DropDownMenu(movie: widget.movie),
                   ])),
         ));
   }
 }
 
 class DropDownMenu extends StatefulWidget {
-  const DropDownMenu({super.key});
+  final Movie movie;
+
+  const DropDownMenu({super.key, required this.movie});
 
   @override
   State<DropDownMenu> createState() => _DropDownMenuState();
 }
 
 class _DropDownMenuState extends State<DropDownMenu> {
-  int _quantity = 0;
+  int _quantity = 1;
   String _feedback = '';
 
   @override
@@ -78,7 +82,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
           spacing: 15,
           children: [
             DropdownMenu<int>(
-              initialSelection: 0,
+              initialSelection: 1,
               onSelected: (int? value) {
                 if (value != null) {
                   setState(() {
@@ -87,7 +91,6 @@ class _DropDownMenuState extends State<DropDownMenu> {
                 }
               },
               dropdownMenuEntries: [
-                DropdownMenuEntry(value: 0, label: '0'),
                 DropdownMenuEntry(value: 1, label: '1'),
                 DropdownMenuEntry(value: 2, label: '2'),
                 DropdownMenuEntry(value: 3, label: '3'),
@@ -98,13 +101,21 @@ class _DropDownMenuState extends State<DropDownMenu> {
             Text('Number of Tickets: $_quantity'),
           ],
         ),
-        PrimaryButton(label: 'Add to Order',
+        PrimaryButton(
+          label: 'Add to Order',
           onPressed: () {
+            BasketRepository.instance.addItem(
+              TicketItem(
+                movie: widget.movie,
+                quantity: _quantity,
+              ),
+            );
+
             setState(() {
-              _feedback = 'Added $_quantity Tickets';
+              _feedback = 'Added $_quantity tickets to your basket.';
             });
           },
-          ),
+        ),
         Text(_feedback),
       ],
     );
