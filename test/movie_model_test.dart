@@ -43,5 +43,7 @@ void main() {
 
       expect(movie.formattedPrice, '£5.00');
     });
+
+  
   });
 }
